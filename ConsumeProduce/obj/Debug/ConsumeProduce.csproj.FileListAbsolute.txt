@@ -1,0 +1,7 @@
+C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\bin\Debug\ConsumeProduce.exe.config
+C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\bin\Debug\ConsumeProduce.exe
+C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\bin\Debug\ConsumeProduce.pdb
+C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\obj\Debug\ConsumeProduce.csproj.AssemblyReference.cache
+C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\obj\Debug\ConsumeProduce.csproj.CoreCompileInputs.cache
+C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\obj\Debug\ConsumeProduce.exe
+C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\obj\Debug\ConsumeProduce.pdb

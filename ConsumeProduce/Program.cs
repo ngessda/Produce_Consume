@@ -10,7 +10,9 @@ namespace ConsumeProduce
 {
     public class Program
     {
+        private static Random rand = new Random();
         private static Stack<int> stack = new Stack<int>();
+        private const int total = 3;
         static void Main(string[] args)
         {
             var producer = new Thread(Produce);
@@ -21,15 +23,16 @@ namespace ConsumeProduce
         }
         public static void Produce()
         {
-            Random rand = new Random();
             Thread.CurrentThread.Name = "producer";
-            int total = 9;
-            for (int i = 0; i < total; i++) 
+            if (stack.Count < total)
             {
                 try
                 {
                     Monitor.Enter(stack);
-                    stack.Push(rand.Next(0, 256));
+                    for (int i = 0; i < total; i++)
+                    {
+                        stack.Push(rand.Next(0,256));
+                    }
                     Monitor.Pulse(stack);
                 }
                 finally
@@ -40,31 +43,29 @@ namespace ConsumeProduce
         }
         public static void Consume()
         {
-            int[] stack1 = new int[stack.Count];
             Thread.CurrentThread.Name = "consumer";
-            int total = 9;
-            int count = 1;
-            while (count <= total)
+            while (true)
             {
                 try
                 {
                     Monitor.Enter(stack);
-                    if (stack.Count > 3)
+                    if (stack.Count != total)
                     {
-                        for (int i = 0; i < stack.Count; i++)
-                        {
-                            stack1[i] = stack.Pop();
-                        }
+                        Monitor.Wait(stack);
                     }
                     else
                     {
-                        Monitor.Wait(stack);
+                        for (int i = 0; i < total; i++)
+                        {
+                            Console.WriteLine(stack.Pop());
+                        }
                     }
                 }
                 finally
                 {
                     Monitor.Exit(stack);
                 }
+                
             }
         }
     }
