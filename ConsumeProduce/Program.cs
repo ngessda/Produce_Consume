@@ -44,28 +44,24 @@ namespace ConsumeProduce
         public static void Consume()
         {
             Thread.CurrentThread.Name = "consumer";
-            while (true)
+            try
             {
-                try
+                Monitor.Enter(stack);
+                if (stack.Count != total)
                 {
-                    Monitor.Enter(stack);
-                    if (stack.Count != total)
+                    Monitor.Wait(stack);
+                }
+                else
+                {
+                    for (int i = 0; i < total; i++)
                     {
-                        Monitor.Wait(stack);
-                    }
-                    else
-                    {
-                        for (int i = 0; i < total; i++)
-                        {
-                            Console.WriteLine(stack.Pop());
-                        }
+                        Console.WriteLine(stack.Pop());
                     }
                 }
-                finally
-                {
-                    Monitor.Exit(stack);
-                }
-                
+            }
+            finally
+            {
+                Monitor.Exit(stack);
             }
         }
     }
