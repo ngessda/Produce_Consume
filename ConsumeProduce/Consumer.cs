@@ -27,13 +27,13 @@ namespace ConsumeProduce
             try
             {
                 Monitor.Enter(stack);
-                if (stack.Count != total)
+                if (stack.Count < 3)
                 {
                     Monitor.Wait(stack);
                 }
                 else
                 {
-                    for (int i = 0; i < total; i++)
+                    for (int i = 0; i < 3; i++)
                     {
                         Console.WriteLine(stack.Pop());
                     }

@@ -32,8 +32,11 @@ namespace ConsumeProduce
                     for (int i = 0; i < total; i++)
                     {
                         stack.Push(rand.Next(0, 256));
+                        if (stack.Count >= 3)
+                        {
+                            Monitor.Pulse(stack);
+                        }
                     }
-                    Monitor.Pulse(stack);
                 }
                 finally
                 {
