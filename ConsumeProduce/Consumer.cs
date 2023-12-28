@@ -23,25 +23,40 @@ namespace ConsumeProduce
         }
         public void Consume()
         {
+            int count = 0;
             Thread.CurrentThread.Name = "consumer";
-            try
+            while(total >= count)
             {
-                Monitor.Enter(stack);
-                if (stack.Count < 3)
+                try
                 {
-                    Monitor.Wait(stack);
-                }
-                else
-                {
-                    for (int i = 0; i < 3; i++)
+                    Monitor.Enter(stack);
+                    if (total - count < 3)
                     {
-                        Console.WriteLine(stack.Pop());
+                        for (int i = 0; i < stack.Count; i++)
+                        {
+                            Console.WriteLine(stack.Pop());
+                            count++;
+                        }
+                    }
+                    else if (stack.Count < 3)
+                    {
+                        Monitor.Wait(stack);
+                    }
+                    else
+                    {
+                        for (int i = 0; i < 3; i++)
+                        {
+                            Console.WriteLine(stack.Pop());
+                            count++;
+                        }
+                        Monitor.Pulse(stack);
+                        Console.WriteLine("====================================================");
                     }
                 }
-            }
-            finally
-            {
-                Monitor.Exit(stack);
+                finally
+                {
+                    Monitor.Exit(stack);
+                }
             }
         }
     }

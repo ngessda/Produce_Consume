@@ -16,15 +16,16 @@ namespace ConsumeProduce
         private int total = 0;
         public Producer(Stack<int> generalStack, int generalTotal)
         {
-            stack = generalStack;
             total = generalTotal;
+            stack = generalStack;
             producer = new Thread(Produce);
             producer.Start();
         }
         public void Produce()
         {
+            int count = 0;
             Thread.CurrentThread.Name = "producer";
-            if (stack.Count < total)
+            while(total > count)
             {
                 try
                 {
@@ -32,9 +33,11 @@ namespace ConsumeProduce
                     for (int i = 0; i < total; i++)
                     {
                         stack.Push(rand.Next(0, 256));
+                        count++;
                         if (stack.Count >= 3)
                         {
                             Monitor.Pulse(stack);
+                            Monitor.Wait(stack);
                         }
                     }
                 }
