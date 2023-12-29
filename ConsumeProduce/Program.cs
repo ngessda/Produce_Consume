@@ -13,7 +13,7 @@ namespace ConsumeProduce
         static Stack<int> stack = new Stack<int>();
         static void Main(string[] args)
         {
-            int total = 1;
+            int total = 28;
             Producer producer = new Producer(stack, total);
             Consumer consumer = new Consumer(stack, total);
             Console.ReadKey();

@@ -33,10 +33,6 @@ namespace ConsumeProduce
                     stack.Push(rand.Next(0, 256));
                 }
                 Monitor.Pulse(stack);
-                if (stack.Count >= 3)
-                {
-                    Monitor.Wait(stack);
-                }
             }
             finally
             {
