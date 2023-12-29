@@ -25,26 +25,22 @@ namespace ConsumeProduce
         {
             int count = 0;
             Thread.CurrentThread.Name = "producer";
-            while(total > count)
+            try
             {
-                try
+                Monitor.Enter(stack);
+                for (int i = 0; i < total; i++)
                 {
-                    Monitor.Enter(stack);
-                    for (int i = 0; i < total; i++)
-                    {
-                        stack.Push(rand.Next(0, 256));
-                        count++;
-                        if (stack.Count >= 3)
-                        {
-                            Monitor.Pulse(stack);
-                            Monitor.Wait(stack);
-                        }
-                    }
+                    stack.Push(rand.Next(0, 256));
                 }
-                finally
+                Monitor.Pulse(stack);
+                if (stack.Count >= 3)
                 {
-                    Monitor.Exit(stack);
+                    Monitor.Wait(stack);
                 }
+            }
+            finally
+            {
+                Monitor.Exit(stack);
             }
         }
     }

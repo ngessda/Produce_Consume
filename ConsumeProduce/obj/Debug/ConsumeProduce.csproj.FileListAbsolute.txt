@@ -5,3 +5,10 @@ C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\obj\Debug\ConsumePro
 C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\obj\Debug\ConsumeProduce.csproj.CoreCompileInputs.cache
 C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\obj\Debug\ConsumeProduce.exe
 C:\Users\BIAdmin\source\repos\ConsumeProduce\ConsumeProduce\obj\Debug\ConsumeProduce.pdb
+C:\Users\BIAdmin\Source\Repos\ngessda\Produce_Consume\ConsumeProduce\bin\Debug\ConsumeProduce.exe.config
+C:\Users\BIAdmin\Source\Repos\ngessda\Produce_Consume\ConsumeProduce\bin\Debug\ConsumeProduce.exe
+C:\Users\BIAdmin\Source\Repos\ngessda\Produce_Consume\ConsumeProduce\bin\Debug\ConsumeProduce.pdb
+C:\Users\BIAdmin\Source\Repos\ngessda\Produce_Consume\ConsumeProduce\obj\Debug\ConsumeProduce.csproj.AssemblyReference.cache
+C:\Users\BIAdmin\Source\Repos\ngessda\Produce_Consume\ConsumeProduce\obj\Debug\ConsumeProduce.csproj.CoreCompileInputs.cache
+C:\Users\BIAdmin\Source\Repos\ngessda\Produce_Consume\ConsumeProduce\obj\Debug\ConsumeProduce.exe
+C:\Users\BIAdmin\Source\Repos\ngessda\Produce_Consume\ConsumeProduce\obj\Debug\ConsumeProduce.pdb
